@@ -1,0 +1,354 @@
+:root {
+    /* THEME ONE  */
+    /* Background here  */
+    --them1-main-bg: hsl(222, 26%, 31%);
+    --theme1-keybord-bg: hsl(223, 31%, 20%);
+    --theme1-screen-bg: hsl(224, 36%, 15%);
+
+    /* KEYS HERE  */
+    --theme1-key-bg: hsl(225, 21%, 49%);
+    --theme1-key-shadow: hsl(224, 28%, 35%);
+    --theme1-toggle-key: hsl(6, 63%, 50%);
+    --theme1-toggle-key-shadow: hsl(6, 70%, 34%);
+    --theme1-key-bg2: hsl(30, 25%, 89%);
+    --theme1-key-shadow2: hsl(28, 16%, 65%);
+
+    /* TEXT HERE  */
+    --theme1-text: hsl(221, 14%, 31%);
+    --theme1-text-white: #fff;
+
+
+    /* THEME TWO HERE  */
+    /* Background here  */
+    --them2-main-bg: hsl(0, 0%, 90%);
+    --them2-keybord-bg: hsl(0, 5%, 81%);
+    --them2-screen-bg: hsl(0, 0%, 93%);
+
+    /* KEYS HERE  */
+    --theme2-key-bg: hsl(185, 42%, 37%);
+    --theme2-key-shadow: hsl(185, 58%, 25%);
+    --theme2-orange-key: hsl(25, 98%, 40%);
+    --theme2-orange-key-shadow: hsl(25, 99%, 27%);
+    --theme2-yellow-key: hsl(45, 7%, 89%);
+    --theme2-yellow-key-shadow: hsl(35, 11%, 61%);
+
+    /* TEXT HERE  */
+    --theme2-text: hsl(60, 10%, 19%);
+    --theme2-text-white: #fff;
+
+
+    /* THEME 3 HERE  */
+    /* Background here  */
+    --them3-main-bg: hsl(268, 75%, 9%);
+    --them3-toggle-bg: hsl(268, 71%, 12%);
+
+    /* KEYS HERE  */
+    --theme3-key-bg: hsl(281, 89%, 26%);
+    --theme3-key-shadow: hsl(285, 91%, 52%);
+    --theme3-blue-key: hsl(176, 100%, 44%);
+    --theme3-blue-key-shadow: hsl(177, 92%, 70%);
+    --theme3-key-bg2: hsl(268, 47%, 21%);
+    --theme3-key-shadow2: hsl(290, 70%, 36%);
+
+    /* TEXT HERE  */
+    --theme3-text: hsl(52, 100%, 62%);
+    --theme3-text-white: hsl(0, 0, 100%);
+    --theme3-text-dark-blue: hsl(198, 20%, 13%);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    font-family: 'Spartan', sans-serif;
+}
+
+body[data-theme="theme1"] {
+    background-color: var(--them1-main-bg);
+}
+
+body[data-theme="theme2"]
+{
+    background-color: var(--them2-main-bg);
+}
+
+body[data-theme = "theme3"]{
+    background-color:var(--them3-main-bg);
+}
+
+/* TAG SELCTOR HERE  */
+main {
+    width: 90%;
+    padding: 2% 1%;
+    margin: 3em auto;
+}
+
+/* CLASSES TO HANDLE FLEX BOX */
+.__flex {
+    display: flex;
+}
+
+.__flex.__row {
+    flex-direction: row;
+}
+
+.__flex.__cols {
+    flex-direction: column;
+}
+
+/* HEADER HERE  */
+.head {
+    justify-content: space-between;
+}
+
+.head[data-theme = "theme1"]
+{
+    color:#fff;
+}
+
+.head[data-theme = "theme2"]{
+    color: var(--theme2-text);
+}
+
+.head[data-theme = "theme3"]{
+    color: var(--theme3-text);
+}
+h1{
+    font-weight: 700;
+    font-size: 2.5ch;
+}
+
+.head>div {
+    font-weight: 400;
+}
+
+.themeChanger {
+    align-items: center;
+    font-size: 1ch;
+    font-weight: 700;
+}
+
+div[role="contentinfo"] {
+    font-size:1ch;
+    font-weight: 700;
+    position: relative;
+    right: 10%;
+}
+
+/* //OUTER BOX FOR TOGGLE BUTTON  */
+
+.toggle-info p{
+    width: calc(100/3);
+    margin: 0 auto;
+    font-size: 1ch;
+    font-weight: 700;
+}
+
+.toggle-box {
+    border-radius: 10px;
+    justify-content: space-between;
+    width: fit-content;
+    position: relative;
+}
+
+.toggle-box[data-theme="theme1"]{
+    background-color: var(--theme1-screen-bg);
+}
+
+.toggle-box[data-theme="theme2"]{
+    background-color: var(--them2-keybord-bg);
+}
+
+.toggle-box[data-theme="theme3"]{
+    background-color: var(--them3-toggle-bg);
+}
+
+.toggle-box button {
+    padding: 7px 10px;
+    cursor: pointer;
+    background-color:transparent;
+    position: relative;
+    bottom:2px;
+    border: none;
+}
+
+.ball {
+    width: 15px;
+    background-color: var(--theme1-toggle-key);
+    border-radius: 50%;
+    box-shadow: 0 0 2px var(--theme1-toggle-key-shadow);
+    position: absolute;
+    top: 2%;
+    bottom: 0;
+    transition-duration: 150ms;
+    margin: 2px 0;
+    z-index: 5;
+}
+
+.ball[data-theme = "theme1"] {
+    left: 5%;
+}
+
+.ball[data-theme = "theme2"]{
+    left:35%;
+}
+
+.ball[data-theme="theme3"] {
+    background-color: var(--theme3-blue-key);
+    left: 65%;
+}
+
+/* //DISPLAY SECTIO HERE */
+.display{
+    flex: 1 1 100%;
+    border-radius: 5px;
+    margin:10% auto auto;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.display[data-theme = "theme1"]
+{
+    background-color: var(--theme1-screen-bg);
+    color: #fff;
+}
+
+.display[data-theme = "theme2"]
+{
+    background-color: var(--them2-screen-bg);
+    color: var(--theme2-text);
+}
+
+.display[data-theme = "theme3"]{
+    background-color:var(--them3-toggle-bg);
+    color: var(--theme3-text);
+}
+
+.display>h1{
+    font-size: 3ch;
+    padding: 7px 0;
+    margin: 3% 2%;
+}
+
+/* KEYPAD SECTION HERE  */
+.keypad{
+    width: 100%;
+    margin: 5% auto;
+    border-radius: 5px;
+    padding: 15px 0px;
+}
+
+.btn-row{
+    justify-content: space-evenly;
+    /* margin: 1% 2%; */
+    padding: 5px 2px;
+}
+
+.btn{
+    border: none;
+    flex: 1 1 calc(100%/4);
+    padding:15px 15px;
+    margin: 2% 2%;
+    font-size: 2.5ch;
+    font-weight:700;
+    border-radius: 5px;
+}
+
+.btn.del{
+    width: 25%;
+    font-size: 1.5ch;
+}
+.btn.reset ,.btn.eq{
+    flex: 1 1 40%;
+}
+
+.keypad[data-theme = "theme1"]{
+    background-color: var(--theme1-keybord-bg);
+}
+
+.keypad[data-theme = "theme1"] .btn{
+    box-shadow: 0 5px  var(--theme1-key-shadow2);
+    color: var(--theme1-text);
+    background-color: var(--theme1-key-bg2);
+}
+
+.keypad[data-theme = "theme1"] .btn.del,.keypad[data-theme = "theme1"]  .btn.reset{
+    background-color: var(--theme1-key-bg);
+    box-shadow: 0 7px var(--theme1-key-shadow);
+    color:#fff;
+}
+
+.keypad[data-theme = "theme1"] .btn.eq{
+    background-color: var(--theme1-toggle-key);
+    box-shadow: 0 7px var(--theme1-toggle-key-shadow);
+    color: #fff;
+}
+
+
+.keypad[data-theme = "theme2"]{
+    background-color: var(--them2-keybord-bg);
+}
+
+.keypad[data-theme = "theme2"] .btn{
+    background-color: var(--theme1-key-bg2);
+    box-shadow: 0 7px var(--theme1-key-shadow2);
+    color: var(--theme2-text);
+}
+
+.keypad[data-theme = "theme2"] .btn.del , .keypad[data-theme = "theme2"] .btn.reset{
+    background-color: var(--theme2-key-bg);
+    box-shadow: 0 7px var(--theme2-key-shadow);
+    color: var(--theme2-text-white);
+}
+
+.keypad[data-theme = "theme2"] .btn.eq{
+    background-color: var(--theme2-orange-key);
+    box-shadow: 0 7px var(--theme2-orange-key-shadow);
+    color:var(--theme3-text-white);    
+}
+
+.keypad[data-theme = "theme3"]{
+ background-color: var(--them3-toggle-bg);
+}
+
+.keypad[data-theme = "theme3"] .btn{
+    background-color: var(--theme3-key-bg2);
+    box-shadow: 0 7px var(--theme3-key-shadow2);
+    color: var(--theme3-text);
+}
+
+.keypad[data-theme = "theme3"] .btn.del , .keypad[data-theme = "theme3"] .btn.reset{
+    background-color: var(--theme3-key-bg);
+    box-shadow: 0 7px var(--theme3-key-shadow);
+    color: var(--theme1-text-white);
+}
+
+.keypad[data-theme = "theme3"] .btn.eq{
+    background-color: var(--theme3-blue-key);
+    box-shadow: 0 7px var(--theme3-blue-key-shadow);
+    color: var(--theme3-text-white);    
+}
+
+@media (min-width:700px){
+    main{
+        margin: .5em auto;
+        width: 35%;
+    }
+
+    .btn{
+        padding: 5px 3px;
+    }
+    .btn-row{
+        padding: 3px 5px;
+    }
+}
